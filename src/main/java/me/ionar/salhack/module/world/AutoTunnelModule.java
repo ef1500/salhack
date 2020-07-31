@@ -413,7 +413,7 @@ public class AutoTunnelModule extends Module
 
                 		GL11.glPushMatrix();
 
-                		RenderUtil.drawFilledBox(bb, 1.0f, 0x50FF0000);
+                		RenderUtil.drawFilledBox(bb, 0x50FF0000);
                 		float p = 1 + (1 - 1) * 1;
                 		float red = p * 2F;
                 		float green = 2 - red;
@@ -428,10 +428,10 @@ public class AutoTunnelModule extends Module
                 		}
 
                 		GL11.glColor4f(red, green, 0, 0.25F);
-                		RenderUtil.drawFilledBox(bb, 1.0f, 0x50FF0000);
+                		RenderUtil.drawFilledBox(bb, 0x50FF0000);
 
                 		GL11.glColor4f(red, green, 0, 0.5F);
-                		RenderUtil.drawOutlinedBox(bb, 1.0f, 0x50FF0000);
+                		RenderUtil.drawOutlinedBox(bb, 0x50FF0000);
 
                 		GL11.glPopMatrix();
 
