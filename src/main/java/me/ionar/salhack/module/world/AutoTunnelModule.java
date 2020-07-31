@@ -412,10 +412,9 @@ public class AutoTunnelModule extends Module
                 		GL11.glDisable(GL11.GL_LIGHTING);
 
                 		GL11.glPushMatrix();
-                		RenderUtils.applyRenderOffset();
 
-                		Box box = new Box(bb);
-                		float p = prevProgress + (progress - prevProgress) * partialTicks;
+                		Box box = new RenderUtil.drawFilledBox(bb, 1.0f, 0x50FF0000);
+                		float p = 1 + (1 - 1) * 1;
                 		float red = p * 2F;
                 		float green = 2 - red;
 
