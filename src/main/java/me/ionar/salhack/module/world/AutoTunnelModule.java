@@ -8,8 +8,6 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL11.glHint;
 import static org.lwjgl.opengl.GL11.glLineWidth;
 
-import static org.lwjgl.opengl.GL11;
-
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
