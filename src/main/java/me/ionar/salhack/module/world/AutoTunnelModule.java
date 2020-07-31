@@ -8,6 +8,8 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL11.glHint;
 import static org.lwjgl.opengl.GL11.glLineWidth;
 
+import static org.lwjgl.opengl.GL11;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -42,7 +44,7 @@ public class AutoTunnelModule extends Module
     public final Value<MiningModes> MiningMode = new Value<MiningModes>("MiningMode", new String[] {""}, "Mode of mining to use", MiningModes.Normal);
     public final Value<Boolean> Visualize = new Value<Boolean>("Visualize", new String[] {"Render"}, "Visualizes where blocks are to be destroyed", true);
     public final Value<Boolean> PauseAutoWalk = new Value<Boolean>("PauseAutoWalk", new String[] {"PauseAutoWalk"}, "Pauses autowalk if you are mining", true);
-    
+
     public enum Modes
     {
         Tunnel1x2,
@@ -50,18 +52,18 @@ public class AutoTunnelModule extends Module
         Tunnel2x3,
         Tunnel3x3,
     }
-    
+
     public enum MiningModes
     {
         Normal,
         Packet,
     }
-    
+
     public AutoTunnelModule()
     {
         super("AutoTunnel", new String[] {""}, "Automatically mines different kind of 2d tunnels, in the direction you're facing", "NONE", -1, ModuleType.WORLD);
     }
-    
+
     private List<BlockPos> _blocksToDestroy = new CopyOnWriteArrayList<>();
     private ICamera camera = new Frustum();
     private boolean _needPause = false;
@@ -71,11 +73,11 @@ public class AutoTunnelModule extends Module
     {
         if (event.getEra() != Era.PRE || event.isCancelled())
             return;
-        
+
         _blocksToDestroy.clear();
-        
+
         BlockPos playerPos = PlayerUtil.GetLocalPlayerPosFloored();
-        
+
         switch (PlayerUtil.GetFacing())
         {
             case East:
@@ -86,7 +88,7 @@ public class AutoTunnelModule extends Module
                         {
                             _blocksToDestroy.add(playerPos.east());
                             _blocksToDestroy.add(playerPos.east().up());
-                            
+
                             playerPos = new BlockPos(playerPos).east();
                         }
                         break;
@@ -97,7 +99,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.east().up());
                             _blocksToDestroy.add(playerPos.east().north());
                             _blocksToDestroy.add(playerPos.east().north().up());
-                            
+
                             playerPos = new BlockPos(playerPos).east();
                         }
                         break;
@@ -110,7 +112,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.east().north());
                             _blocksToDestroy.add(playerPos.east().north().up());
                             _blocksToDestroy.add(playerPos.east().north().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).east();
                         }
                         break;
@@ -126,7 +128,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.east().north().north());
                             _blocksToDestroy.add(playerPos.east().north().north().up());
                             _blocksToDestroy.add(playerPos.east().north().north().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).east();
                         }
                         break;
@@ -142,7 +144,7 @@ public class AutoTunnelModule extends Module
                         {
                             _blocksToDestroy.add(playerPos.north());
                             _blocksToDestroy.add(playerPos.north().up());
-                            
+
                             playerPos = new BlockPos(playerPos).north();
                         }
                         break;
@@ -153,7 +155,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.north().up());
                             _blocksToDestroy.add(playerPos.north().east());
                             _blocksToDestroy.add(playerPos.north().east().up());
-                            
+
                             playerPos = new BlockPos(playerPos).north();
                         }
                         break;
@@ -166,7 +168,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.north().east());
                             _blocksToDestroy.add(playerPos.north().east().up());
                             _blocksToDestroy.add(playerPos.north().east().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).north();
                         }
                         break;
@@ -182,7 +184,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.north().east().east());
                             _blocksToDestroy.add(playerPos.north().east().east().up());
                             _blocksToDestroy.add(playerPos.north().east().east().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).north();
                         }
                         break;
@@ -198,7 +200,7 @@ public class AutoTunnelModule extends Module
                         {
                             _blocksToDestroy.add(playerPos.south());
                             _blocksToDestroy.add(playerPos.south().up());
-                            
+
                             playerPos = new BlockPos(playerPos).south();
                         }
                         break;
@@ -209,7 +211,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.south().up());
                             _blocksToDestroy.add(playerPos.south().west());
                             _blocksToDestroy.add(playerPos.south().west().up());
-                            
+
                             playerPos = new BlockPos(playerPos).south();
                         }
                         break;
@@ -222,7 +224,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.south().west());
                             _blocksToDestroy.add(playerPos.south().west().up());
                             _blocksToDestroy.add(playerPos.south().west().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).south();
                         }
                         break;
@@ -238,7 +240,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.south().west().west());
                             _blocksToDestroy.add(playerPos.south().west().west().up());
                             _blocksToDestroy.add(playerPos.south().west().west().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).south();
                         }
                         break;
@@ -254,7 +256,7 @@ public class AutoTunnelModule extends Module
                         {
                             _blocksToDestroy.add(playerPos.west());
                             _blocksToDestroy.add(playerPos.west().up());
-                            
+
                             playerPos = new BlockPos(playerPos).west();
                         }
                         break;
@@ -265,7 +267,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.west().up());
                             _blocksToDestroy.add(playerPos.west().south());
                             _blocksToDestroy.add(playerPos.west().south().up());
-                            
+
                             playerPos = new BlockPos(playerPos).west();
                         }
                         break;
@@ -278,7 +280,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.west().south());
                             _blocksToDestroy.add(playerPos.west().south().up());
                             _blocksToDestroy.add(playerPos.west().south().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).west();
                         }
                         break;
@@ -294,7 +296,7 @@ public class AutoTunnelModule extends Module
                             _blocksToDestroy.add(playerPos.west().south().south());
                             _blocksToDestroy.add(playerPos.west().south().south().up());
                             _blocksToDestroy.add(playerPos.west().south().south().up().up());
-                            
+
                             playerPos = new BlockPos(playerPos).west();
                         }
                         break;
@@ -305,34 +307,34 @@ public class AutoTunnelModule extends Module
             default:
                 break;
         }
-        
+
         BlockPos toDestroy = null;
-        
+
         for (BlockPos pos : _blocksToDestroy)
         {
             IBlockState state = mc.world.getBlockState(pos);
-            
+
             if (state.getBlock() == Blocks.AIR || state.getBlock() instanceof BlockDynamicLiquid || state.getBlock() instanceof BlockStaticLiquid || state.getBlock() == Blocks.BEDROCK)
                 continue;
-            
+
             toDestroy = pos;
             break;
         }
-        
+
         if (toDestroy != null)
         {
             event.cancel();
-            
+
             float[] rotations = BlockInteractionHelper.getLegitRotations(new Vec3d(toDestroy.getX(), toDestroy.getY(), toDestroy.getZ()));
-            
+
             PlayerUtil.PacketFacePitchAndYaw(rotations[1], rotations[0]);
-            
+
             switch (MiningMode.getValue())
             {
                 case Normal:
                     if (BlockManager.GetCurrBlock() == null)
                         BlockManager.SetCurrentBlock(toDestroy);
-                    
+
                     BlockManager.Update(5.0f, true);
                     break;
                 case Packet:
@@ -345,23 +347,23 @@ public class AutoTunnelModule extends Module
                 default:
                     break;
             }
-            
+
             _needPause = true;
         }
         else
             _needPause = false;
     });
-    
+
     @EventHandler
     private Listener<RenderEvent> OnRenderEvent = new Listener<>(event ->
     {
         if (!Visualize.getValue())
             return;
-        
+
         _blocksToDestroy.forEach(pos ->
         {
             IBlockState l_State = mc.world.getBlockState(pos);
-            
+
             if (l_State != null && l_State.getBlock() != Blocks.AIR && l_State.getBlock() != Blocks.BEDROCK && !(l_State.getBlock() instanceof BlockDynamicLiquid) && !(l_State.getBlock() instanceof BlockStaticLiquid))
             {
                 final AxisAlignedBB bb = new AxisAlignedBB(pos.getX() - mc.getRenderManager().viewerPosX,
@@ -370,15 +372,16 @@ public class AutoTunnelModule extends Module
                         pos.getX() + 1 - mc.getRenderManager().viewerPosX,
                         pos.getY() + (1) - mc.getRenderManager().viewerPosY,
                         pos.getZ() + 1 - mc.getRenderManager().viewerPosZ);
-        
+
                 camera.setPosition(mc.getRenderViewEntity().posX, mc.getRenderViewEntity().posY,
                         mc.getRenderViewEntity().posZ);
-        
+
                 if (camera.isBoundingBoxInFrustum(new AxisAlignedBB(bb.minX + mc.getRenderManager().viewerPosX,
                         bb.minY + mc.getRenderManager().viewerPosY, bb.minZ + mc.getRenderManager().viewerPosZ,
                         bb.maxX + mc.getRenderManager().viewerPosX, bb.maxY + mc.getRenderManager().viewerPosY,
                         bb.maxZ + mc.getRenderManager().viewerPosZ)))
                 {
+                    /*
                     GlStateManager.pushMatrix();
                     GlStateManager.enableBlend();
                     GlStateManager.disableDepth();
@@ -388,7 +391,7 @@ public class AutoTunnelModule extends Module
                     glEnable(GL_LINE_SMOOTH);
                     glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
                     glLineWidth(1.5f);
-        
+
                     RenderUtil.drawBoundingBox(bb, 1.0f, 0x50FF0000);
                     RenderUtil.drawFilledBox(bb, 0x50FF0000);
                     glDisable(GL_LINE_SMOOTH);
@@ -397,11 +400,53 @@ public class AutoTunnelModule extends Module
                     GlStateManager.enableTexture2D();
                     GlStateManager.disableBlend();
                     GlStateManager.popMatrix();
+                    */
+                    //trying to make the auto tunnel look a little nicer
+                    GL11.glEnable(GL11.GL_BLEND);
+                		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+                		GL11.glEnable(GL11.GL_LINE_SMOOTH);
+                		GL11.glLineWidth(2);
+                		GL11.glDisable(GL11.GL_TEXTURE_2D);
+                		GL11.glEnable(GL11.GL_CULL_FACE);
+                		GL11.glDisable(GL11.GL_DEPTH_TEST);
+                		GL11.glDisable(GL11.GL_LIGHTING);
+
+                		GL11.glPushMatrix();
+                		RenderUtils.applyRenderOffset();
+
+                		Box box = new Box(bb);
+                		float p = prevProgress + (progress - prevProgress) * partialTicks;
+                		float red = p * 2F;
+                		float green = 2 - red;
+
+                		GL11.glTranslated(pos.getX(), pos.getY(),
+                			pos.getZ());
+                		if(p < 1)
+                		{
+                			GL11.glTranslated(0.5, 0.5, 0.5);
+                			GL11.glScaled(p, p, p);
+                			GL11.glTranslated(-0.5, -0.5, -0.5);
+                		}
+
+                		GL11.glColor4f(red, green, 0, 0.25F);
+                		RenderUtils.drawSolidBox(box);
+
+                		GL11.glColor4f(red, green, 0, 0.5F);
+                		RenderUtils.drawOutlinedBox(box);
+
+                		GL11.glPopMatrix();
+
+                		// GL resets
+                		GL11.glColor4f(1, 1, 1, 1);
+                		GL11.glEnable(GL11.GL_DEPTH_TEST);
+                		GL11.glEnable(GL11.GL_TEXTURE_2D);
+                		GL11.glDisable(GL11.GL_BLEND);
+                		GL11.glDisable(GL11.GL_LINE_SMOOTH);
                 }
             }
         });
     });
-    
+
     public boolean PauseAutoWalk()
     {
         return _needPause && PauseAutoWalk.getValue();
