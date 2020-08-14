@@ -1,10 +1,9 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class reservoirSampling {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException{
+    public static void main(String[] args){
         Qgen mySampler = new Qgen();
         List<String> myList = mySampler.qgen(10);
         for(int index = 0;index<myList.size();index++){
@@ -13,18 +12,13 @@ public class reservoirSampling {
     }
 }
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Qgen {
 
     public Qgen(){}
-    public List<String> qgen (int reservoirSize) throws FileNotFoundException, IOException
+    public List<String> qgen (int reservoirSize)
     {
         String currentLine=null;
         //reservoirList is where our selected lines stored
