@@ -7,8 +7,10 @@ import me.ionar.salhack.module.Module;
 import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.combat.AutoCrystalRewrite;
 import me.ionar.salhack.util.entity.PlayerUtil;
-
-import me.ionar.salhack.util.Qselector.Qsel; //remove if it dosen't work. idk how to import shit.
+import java.util.Random;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class DiscordRPCModule extends Module
 {
@@ -85,11 +87,15 @@ public class DiscordRPCModule extends Module
 
         if (Quote.getValue())
         {
-          List<String> qList = qsampler.qgen(10);
-          for(int index = 0;index<myList.size();index++){
-              qList.get(index);
-            }
-          return qList.get(index);
+          File files = new File("YuriQuote.txt");
+        int c=0;
+            Scanner scanner = new Scanner(files);
+            while (scanner.hasNextLine()) {
+                String l = scanner.nextLine();
+                c++;
+        Random random = new Random();
+        int r = random.nextInt(c);
+        return c;
         }
 
         if (GitHub.getValue())
