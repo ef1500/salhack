@@ -51,6 +51,7 @@ public class AutoTunnelModule extends Module
         Tunnel2x2,
         Tunnel2x3,
         Tunnel3x3,
+        Tunnel5x3,
     }
 
     public enum MiningModes
@@ -132,6 +133,29 @@ public class AutoTunnelModule extends Module
                             playerPos = new BlockPos(playerPos).east();
                         }
                         break;
+                    case Tunnel5x3:
+                                for (int i = 0; i < 3; ++i)
+                                {
+                                  _blocksToDestroy.add(playerPos.east());
+                                  _blocksToDestroy.add(playerPos.east().up());
+                                  _blocksToDestroy.add(playerPos.east().up().up());
+                                  _blocksToDestroy.add(playerPos.east().north());
+                                  _blocksToDestroy.add(playerPos.east().north().up());
+                                  _blocksToDestroy.add(playerPos.east().north().up().up());
+                                  _blocksToDestroy.add(playerPos.east().north().north());
+                                  _blocksToDestroy.add(playerPos.east().north().north().up());
+                                  _blocksToDestroy.add(playerPos.east().north().north().up().up());
+                                  //add some more to allow for highway repair on servers like 0b and 2b
+                                  _blocksToDestroy.add(playerPos.east().north().north().north());
+                                  _blocksToDestroy.add(playerPos.east().north().north().north().up());
+                                  _blocksToDestroy.add(playerPos.east().north().north().north().up().up());
+                                  _blocksToDestroy.add(playerPos.east().north().north().north().north());
+                                  _blocksToDestroy.add(playerPos.east().north().north().north().north().up());
+                                  _blocksToDestroy.add(playerPos.east().north().north().north().north().up().up());
+
+                                    playerPos = new BlockPos(playerPos).east();
+                                }
+                            break;
                     default:
                         break;
                 }
@@ -188,6 +212,29 @@ public class AutoTunnelModule extends Module
                             playerPos = new BlockPos(playerPos).north();
                         }
                         break;
+                  case Tunnel5x3:
+                                for (int i = 0; i < 3; ++i)
+                                {
+                                  _blocksToDestroy.add(playerPos.north());
+                                  _blocksToDestroy.add(playerPos.north().up());
+                                  _blocksToDestroy.add(playerPos.north().up().up());
+                                  _blocksToDestroy.add(playerPos.north().east());
+                                  _blocksToDestroy.add(playerPos.north().east().up());
+                                  _blocksToDestroy.add(playerPos.north().east().up().up());
+                                  _blocksToDestroy.add(playerPos.north().east().east());
+                                  _blocksToDestroy.add(playerPos.north().east().east().up());
+                                  _blocksToDestroy.add(playerPos.north().east().east().up().up());
+                                  //add some more to allow for highway repair on servers like 0b and 2b
+                                  _blocksToDestroy.add(playerPos.north().east().east().east());
+                                  _blocksToDestroy.add(playerPos.north().east().east().east().up());
+                                  _blocksToDestroy.add(playerPos.north().east().east().east().up().up());
+                                  _blocksToDestroy.add(playerPos.north().east().east().east().east());
+                                  _blocksToDestroy.add(playerPos.north().east().east().east().east().up());
+                                  _blocksToDestroy.add(playerPos.north().east().east().east().east().up().up());
+
+                                    playerPos = new BlockPos(playerPos).north();
+                                }
+                                break;
                     default:
                         break;
                 }
@@ -244,6 +291,29 @@ public class AutoTunnelModule extends Module
                             playerPos = new BlockPos(playerPos).south();
                         }
                         break;
+                    case Tunnel5x3:
+                                for (int i = 0; i < 3; ++i)
+                                {
+                                  _blocksToDestroy.add(playerPos.south());
+                                  _blocksToDestroy.add(playerPos.south().up());
+                                  _blocksToDestroy.add(playerPos.south().up().up());
+                                  _blocksToDestroy.add(playerPos.south().west());
+                                  _blocksToDestroy.add(playerPos.south().west().up());
+                                  _blocksToDestroy.add(playerPos.south().west().up().up());
+                                  _blocksToDestroy.add(playerPos.south().west().west());
+                                  _blocksToDestroy.add(playerPos.south().west().west().up());
+                                  _blocksToDestroy.add(playerPos.south().west().west().up().up());
+                                  //add some more to allow for highway repair on servers like 0b and 2b
+                                  _blocksToDestroy.add(playerPos.south().west().west().west());
+                                  _blocksToDestroy.add(playerPos.south().west().west().west().up());
+                                  _blocksToDestroy.add(playerPos.south().west().west().west().up().up());
+                                  _blocksToDestroy.add(playerPos.south().west().west().west().west());
+                                  _blocksToDestroy.add(playerPos.south().west().west().west().west().up());
+                                  _blocksToDestroy.add(playerPos.south().west().west().west().west().up().up());
+
+                                    playerPos = new BlockPos(playerPos).south();
+                                }
+                                break;
                     default:
                         break;
                 }
@@ -300,6 +370,29 @@ public class AutoTunnelModule extends Module
                             playerPos = new BlockPos(playerPos).west();
                         }
                         break;
+                    case Tunnel5x3:
+                            for (int i = 0; i < 3; ++i)
+                            {
+                              _blocksToDestroy.add(playerPos.west());
+                              _blocksToDestroy.add(playerPos.west().up());
+                              _blocksToDestroy.add(playerPos.west().up().up());
+                              _blocksToDestroy.add(playerPos.west().south());
+                              _blocksToDestroy.add(playerPos.west().south().up());
+                              _blocksToDestroy.add(playerPos.west().south().up().up());
+                              _blocksToDestroy.add(playerPos.west().south().south());
+                              _blocksToDestroy.add(playerPos.west().south().south().up());
+                              _blocksToDestroy.add(playerPos.west().south().south().up().up());
+                              //add some more to allow for highway repair on servers like 0b and 2b
+                              _blocksToDestroy.add(playerPos.west().south().south().south());
+                              _blocksToDestroy.add(playerPos.west().south().south().south().up());
+                              _blocksToDestroy.add(playerPos.west().south().south().south().up().up());
+                              _blocksToDestroy.add(playerPos.west().south().south().south().south());
+                              _blocksToDestroy.add(playerPos.west().south().south().south().south().up());
+                              _blocksToDestroy.add(playerPos.west().south().south().south().south().up().up());
+
+                                playerPos = new BlockPos(playerPos).west();
+                            }
+                            break;
                     default:
                         break;
                 }
@@ -381,7 +474,7 @@ public class AutoTunnelModule extends Module
                         bb.maxX + mc.getRenderManager().viewerPosX, bb.maxY + mc.getRenderManager().viewerPosY,
                         bb.maxZ + mc.getRenderManager().viewerPosZ)))
                 {
-                    /*
+
                     GlStateManager.pushMatrix();
                     GlStateManager.enableBlend();
                     GlStateManager.disableDepth();
@@ -400,8 +493,9 @@ public class AutoTunnelModule extends Module
                     GlStateManager.enableTexture2D();
                     GlStateManager.disableBlend();
                     GlStateManager.popMatrix();
-                    */
+
                     //trying to make the auto tunnel look a little nicer
+                    /*
                     GL11.glEnable(GL11.GL_BLEND);
                 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
                 		GL11.glEnable(GL11.GL_LINE_SMOOTH);
@@ -441,6 +535,7 @@ public class AutoTunnelModule extends Module
                 		GL11.glEnable(GL11.GL_TEXTURE_2D);
                 		GL11.glDisable(GL11.GL_BLEND);
                 		GL11.glDisable(GL11.GL_LINE_SMOOTH);
+                    */
                 }
             }
         });
