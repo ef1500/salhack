@@ -97,6 +97,7 @@ public class DiscordRPCModule extends Module
         int r = random.nextInt(c);
         return c;
         }
+      }
 
         if (GitHub.getValue())
         {
