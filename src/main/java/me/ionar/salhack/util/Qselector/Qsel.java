@@ -1,20 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-public class reservoirSampling {
-
-    public static void main(String[] args){
-        Qgen mySampler = new Qgen();
-        List<String> myList = mySampler.qgen(10);
-        for(int index = 0;index<myList.size();index++){
-            myList.get(index);
-        }
-    }
-}
-
-import java.io.*;
-import java.util.*;
-
 public class Qgen {
 
     public Qgen(){}
