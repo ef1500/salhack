@@ -485,8 +485,8 @@ public class AutoTunnelModule extends Module
                     glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
                     glLineWidth(1.5f);
 
-                    RenderUtil.drawBoundingBox(bb, 1.0f, 0x50FF0000);
-                    RenderUtil.drawFilledBox(bb, 0x50FF0000);
+                    RenderUtil.drawBoundingBox(bb, 1.0f, 0x5000FF00);
+                    RenderUtil.drawFilledBox(bb, 0x5000FF00);
                     glDisable(GL_LINE_SMOOTH);
                     GlStateManager.depthMask(true);
                     GlStateManager.enableDepth();

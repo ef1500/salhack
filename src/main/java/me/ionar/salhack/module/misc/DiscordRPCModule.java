@@ -8,17 +8,21 @@ import me.ionar.salhack.module.Value;
 import me.ionar.salhack.module.combat.AutoCrystalRewrite;
 import me.ionar.salhack.util.entity.PlayerUtil;
 
+import me.ionar.salhack.util.Qselector.Qsel; //remove if it dosen't work. idk how to import shit.
+
 public class DiscordRPCModule extends Module
 {
     public final Value<Boolean> Username = new Value<Boolean>("Username", new String[] {"U"}, "Displays your username in the rich presence", true);
     public final Value<Boolean> ServerIP = new Value<Boolean>("ServerIP", new String[] {"S"}, "Displays your current playing server in the rich presence", true);
     public final Value<String> DetailsAddon = new Value<String>("DetailsAddon", new String[] {"D"}, "Displays a custom message after the previous", "Gaming");
-    public final Value<Boolean> Ionar = new Value<Boolean>("Ionar", new String[] {"U"}, "Displays a message about ionar", true);
+    public final Value<Boolean> Quote = new Value<Boolean>("Quote", new String[] {"U"}, "Displays a quick Yuri Quote ;)", true);
     public final Value<Boolean> Speed = new Value<Boolean>("Speed", new String[] {"U"}, "Displays your speed in the rich presence", true);
     public final Value<Boolean> Movement = new Value<Boolean>("Movement", new String[] {"U"}, "Displays if you're flying/onground in the rich presence", true);
     public final Value<Boolean> Crystalling = new Value<Boolean>("Crystalling", new String[] {"U"}, "Displays the current target from autocrystal", true);
     public final Value<Boolean> Health = new Value<Boolean>("Health", new String[] {"U"}, "Displays your Health in the rich presence", true);
     public final Value<Boolean> GitHub = new Value<Boolean>("GitHub", new String[] {"U"}, "Displays the github link", false);
+
+    Qgen qsampler = new Qgen(); //make the sampler
 
     public DiscordRPCModule()
     {
@@ -79,14 +83,18 @@ public class DiscordRPCModule extends Module
         if (mc.player == null)
             return "Loading...";
 
-        if (Ionar.getValue())
+        if (Quote.getValue())
         {
-            return "Thank you Ionar for SalHack!";
+          List<String> qList = qsampler.qgen(10);
+          for(int index = 0;index<myList.size();index++){
+              qList.get(index);
+            }
+          return qList.get(index);
         }
 
         if (GitHub.getValue())
         {
-            return "The SalHack source is hosted at https://github.com/ionar2/salhack !";
+            return "github";
         }
 
 
