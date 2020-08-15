@@ -86,14 +86,19 @@ public class DiscordRPCModule extends Module
 
         if (Quote.getValue())
         {
-          File files = new File("YuriQuote.txt");
-        int c=0;
+          try{
+            File files = new File("YuriQuote.txt");
+            int c=0;
             Scanner scanner = new Scanner(files);
             while (scanner.hasNextLine()) {
                 String l = scanner.nextLine();
                 c++;
         Random random = new Random();
         int r = random.nextInt(c);
+      }
+    }catch (FileNotFoundException e){
+      return "Yuri is pure Gold";
+    }
         return l;
         }
       }
