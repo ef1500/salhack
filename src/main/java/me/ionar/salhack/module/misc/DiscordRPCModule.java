@@ -94,7 +94,7 @@ public class DiscordRPCModule extends Module
                 c++;
         Random random = new Random();
         int r = random.nextInt(c);
-        return c;
+        return l;
         }
       }
 
