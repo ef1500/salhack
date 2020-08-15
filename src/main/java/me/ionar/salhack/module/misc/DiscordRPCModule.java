@@ -24,7 +24,6 @@ public class DiscordRPCModule extends Module
     public final Value<Boolean> Health = new Value<Boolean>("Health", new String[] {"U"}, "Displays your Health in the rich presence", true);
     public final Value<Boolean> GitHub = new Value<Boolean>("GitHub", new String[] {"U"}, "Displays the github link", false);
 
-    Qgen qsampler = new Qgen(); //make the sampler
 
     public DiscordRPCModule()
     {
