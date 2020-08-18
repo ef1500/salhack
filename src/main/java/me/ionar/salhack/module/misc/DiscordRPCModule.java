@@ -86,7 +86,7 @@ public class DiscordRPCModule extends Module
 
         if (Quote.getValue())
         {
-          return "Yuri is pure Gold!"
+          return "Yuri is pure Gold!";
         }
 
         if (GitHub.getValue())
