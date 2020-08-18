@@ -17,7 +17,7 @@ public class DiscordManager
         _rpcModule = (DiscordRPCModule)ModuleManager.Get().GetMod(DiscordRPCModule.class);
 
         DiscordRPC lib = DiscordRPC.INSTANCE;
-        String applicationId = "719038221807386665";
+        String applicationId = "745372714201776159";
         String steamId = "";
         DiscordEventHandlers handlers = new DiscordEventHandlers();
         handlers.ready = (user) -> System.out.println("Ready!");
@@ -25,8 +25,8 @@ public class DiscordManager
         DiscordRichPresence presence = new DiscordRichPresence();
         presence.startTimestamp = System.currentTimeMillis() / 1000; // epoch second
         lib.Discord_UpdatePresence(presence);
-        presence.largeImageKey = "image";
-        presence.largeImageText = "https://discord.gg/salhack Join The SalHack Development Discord!";
+        presence.largeImageKey = "sasakoi";
+        presence.largeImageText = "Girls kiss, God Smiles";
         _thread = new Thread(() ->
         {
             while (!Thread.currentThread().isInterrupted())

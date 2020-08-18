@@ -86,33 +86,19 @@ public class DiscordRPCModule extends Module
 
         if (Quote.getValue())
         {
-          try{
-            File files = new File("YuriQuote.txt");
-            int c=0;
-            Scanner scanner = new Scanner(files);
-            while (scanner.hasNextLine()) {
-                String l = scanner.nextLine();
-                c++;
-        Random random = new Random();
-        int r = random.nextInt(c);
-      }
-    }catch (FileNotFoundException e){
-      return "Yuri is pure Gold";
-    }
-        return l;
+          return "Yuri is pure Gold!"
         }
-      }
 
         if (GitHub.getValue())
         {
-            return "github";
+            return "Nothing is better than the meaning of yuri";
         }
 
 
         String result = "";
 
         if (Crystalling.getValue() && _autoCrystal.isEnabled() && _autoCrystal.getTarget() != null)
-            return "Crystalling " + _autoCrystal.getTarget() + " with SalHack's autocrystal!";
+            return "Crystalling " + _autoCrystal.getTarget() + " with YuriHack's autocrystal!";
 
         if (Movement.getValue())
         {
