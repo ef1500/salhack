@@ -27,13 +27,13 @@ public class DiscordManager
         lib.Discord_UpdatePresence(presence);
         presence.largeImageKey = "sasakoi";
         presence.largeImageText = "Girls kiss, God Smiles";
-        Presence.details = "Consuming Yuri";
-        Presence.startTimestamp = 1507665886;
-        Presence.largeImageText = "Girls Kiss, God Smiles";
-        Presence.smallImageText = "百合は人生の血清";
-        Presence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
-        Presence.partySize = 1;
-        Presence.partyMax = 5;
+        presence.details = "Consuming Yuri";
+        presence.startTimestamp = 1507665886;
+        presence.largeImageText = "Girls Kiss, God Smiles";
+        presence.smallImageText = "百合は人生の血清";
+        presence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
+        presence.partySize = 1;
+        presence.partyMax = 5;
         _thread = new Thread(() ->
         {
             while (!Thread.currentThread().isInterrupted())
