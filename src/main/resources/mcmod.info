@@ -1,15 +1,13 @@
 [
     {
-      "modid": "salhack",
-      "name": "SalHack",
-      "description": "SalHack utility mod.",
+      "modid": "yurihack",
+      "name": "YuriHack",
+      "description": "YuriHack utility mod.",
       "version": "${modVersion}",
       "mcversion": "${version_minecraft}",
-      "url": "https://salhack.com",
-      "updateUrl": "https://salhack.com",
-      "authorList": ["ionar"],
+      "authorList": ["ionar"],["ef1500"],
       "credits": "ionar",
-      "logoFile": "assets/salhack/imgs/SalHackWatermark.png",
+      "logoFile": "assets/salhack/imgs/YuriHackLogo.png",
       "screenshots": [],
       "dependencies": []
     },
