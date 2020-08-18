@@ -45,7 +45,7 @@ public class ImageManager
         //LoadImages();
 
     }
-    
+
     public void Load()
     {
         LoadImage("BloodOverlay");
@@ -58,17 +58,17 @@ public class ImageManager
         LoadImage("mouse");
         LoadImage("questionmark");
         LoadImage("robotimg");
-        LoadImage("SalHackWatermark");
+        LoadImage("YuriHackLogo");
         LoadImage("Shield");
         LoadImage("skull");
     }
-    
+
     public void LoadImage(String p_Img)
     {
         BufferedImage l_Image = null;
-        
+
         InputStream l_Stream = ImageManager.class.getResourceAsStream("/assets/salhack/imgs/" + p_Img + ".png");
-        
+
         try
         {
             l_Image = ImageIO.read(l_Stream);
@@ -78,7 +78,7 @@ public class ImageManager
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+
         if (l_Image == null)
         {
             System.out.println("Couldn't load image: " + p_Img);
@@ -95,7 +95,7 @@ public class ImageManager
                     .getDynamicTextureLocation("salhack/textures", l_Texture));
 
             Pictures.put(p_Img, l_Texture);
-            
+
             System.out.println("Loaded Img: " + p_Img);
         }
     }
@@ -107,7 +107,7 @@ public class ImageManager
 
         return null;
     }
-    
+
     public String GetNextImage(String value, boolean p_Recursive)
     {
         String l_String = null;
