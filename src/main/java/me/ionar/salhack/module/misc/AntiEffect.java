@@ -22,7 +22,7 @@ public final class AntiEffectsModule extends Module
     @EventHandler
     private Listener<EventPlayerIsPotionActive> IsPotionActive = new Listener<>(p_Event ->
     {
-      if (Poison.getValue() == 1)
+      if (Poison.getValue() = true)
       {
         if (p_Event.potion == MobEffects.POISON)
         {
