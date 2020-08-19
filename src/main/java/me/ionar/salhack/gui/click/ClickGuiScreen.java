@@ -37,7 +37,7 @@ import net.minecraft.client.renderer.RenderHelper;
 public class ClickGuiScreen extends SalGuiScreen
 {
     private ArrayList<MenuComponent> MenuComponents = new ArrayList<MenuComponent>();
-    private SalDynamicTexture Watermark = ImageManager.Get().GetDynamicTexture("SalHackWatermark");
+    private SalDynamicTexture Watermark = ImageManager.Get().GetDynamicTexture("YuriHackLogo");
     private SalDynamicTexture BlueBlur = ImageManager.Get().GetDynamicTexture("BlueBlur");
     private ArrayList<Snow> _snowList = new ArrayList<Snow>();
     
@@ -57,13 +57,13 @@ public class ClickGuiScreen extends SalGuiScreen
         MenuComponents.add(new MenuComponentModList("World", ModuleType.WORLD, 670, 3, "blockimg", p_Colors, p_Mod));
      //   MenuComponents.add(new MenuComponentModList("Bot", ModuleType.BOT, 780, 3, "robotimg", p_Colors));
         MenuComponents.add(new MenuComponentModList("Schematica", ModuleType.SCHEMATICA, 10, 203, "robotimg", p_Colors, p_Mod));
-        
+
         MenuComponentPresetsList presetList = null;
-        
+
         MenuComponents.add(presetList = new MenuComponentPresetsList("Presets", ModuleType.SCHEMATICA, 120, 203, "robotimg", p_Colors, p_Mod));
 
         PresetsManager.Get().InitalizeGUIComponent(presetList);
-        
+
         ClickGuiMod = p_Mod;
 
         /// Load settings
@@ -103,9 +103,9 @@ public class ClickGuiScreen extends SalGuiScreen
 
             }
         }
-        
+
         Random random = new Random();
-        
+
         for (int i = 0; i < 100; ++i)
         {
             for (int y = 0; y < 3; ++y)
@@ -164,7 +164,7 @@ public class ClickGuiScreen extends SalGuiScreen
         super.drawScreen(mouseX, mouseY, partialTicks);
 
         final ScaledResolution res = new ScaledResolution(mc);
-        
+
         if (!_snowList.isEmpty() && ClickGuiMod.Snowing.getValue())
         {
             _snowList.forEach(snow -> snow.Update(res));
@@ -193,11 +193,11 @@ public class ClickGuiScreen extends SalGuiScreen
         RenderHelper.disableStandardItemLighting();
 
         MenuComponent l_LastHovered = null;
-        
+
         for (MenuComponent l_Menu : MenuComponents)
             if (l_Menu.Render(mouseX, mouseY, true, AllowsOverflow(), OffsetY))
                 l_LastHovered = l_Menu;
-        
+
         if (l_LastHovered != null)
         {
             /// Add to the back of the list for rendering
@@ -209,9 +209,9 @@ public class ClickGuiScreen extends SalGuiScreen
 
         GlStateManager.enableRescaleNormal();
         GlStateManager.popMatrix();
-        
+
         int l_Scrolling = Mouse.getEventDWheel();
-        
+
         /// up
         if (l_Scrolling > 0)
         {
