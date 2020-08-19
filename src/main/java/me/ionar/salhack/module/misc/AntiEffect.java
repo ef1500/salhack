@@ -8,7 +8,7 @@ import me.zero.alpine.fork.listener.Listener;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.MobEffects;
 
-public final class AntiLevitationModule extends Module
+public final class AntiEffectsModule extends Module
 {
   public final Value<Boolean> Poison = new Value<Boolean>("AntiPoison", new String[]
   { "ATP" }, "Prevents Poison effect", false);
