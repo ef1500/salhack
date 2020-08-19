@@ -28,8 +28,9 @@ public class DiscordManager
         presence.largeImageKey = "sasakoi";
         presence.largeImageText = "Girls kiss, God Smiles";
         presence.details = "Consuming Yuri";
-        presence.startTimestamp = 1507665886;
-        presence.smallImageText = "百合は人生の血清";
+        presence.startTimestamp = 101507665886;
+        presence.smallImageKey = "indoukagami";
+        presence.smallImageText = "It's too good... (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)";
         presence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
         presence.partySize = 1;
         presence.partyMax = 5;
