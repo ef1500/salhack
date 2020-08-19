@@ -1,4 +1,4 @@
-package me.ionar.salhack.module.movement;
+package me.ionar.salhack.module.misc;
 
 import me.ionar.salhack.events.player.EventPlayerIsPotionActive;
 import me.ionar.salhack.module.Module;
@@ -22,13 +22,8 @@ public final class AntiEffectsModule extends Module
     @EventHandler
     private Listener<EventPlayerIsPotionActive> IsPotionActive = new Listener<>(p_Event ->
     {
-      if (Poison.getValue() = true)
-      {
         if (p_Event.potion == MobEffects.POISON)
-        {
             p_Event.cancel();
-        }
-      }
 
     });
 }
