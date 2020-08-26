@@ -39,7 +39,7 @@ public class ModuleManager
     public ArrayList<Module> Mods = new ArrayList<Module>();
     private ArrayList<Module> ArrayListAnimations = new ArrayList<Module>();
     private KeybindsModule Keybinds = null;
-    
+
     public void Init()
     {
         /// Combat
@@ -63,7 +63,7 @@ public class ModuleManager
         Add(new SelfTrapModule());
         Add(new SurroundModule());
         Add(new VelocityModule());
-        
+
         /// Exploit
         Add(new AntiHungerModule());
         Add(new CoordTPExploitModule());
@@ -80,6 +80,8 @@ public class ModuleManager
 
         /// Misc
         Add(new AntiAFKModule());
+        //Add the new Hack
+        Add(new AntiEffectModule());
         Add(new AutoBonemealModule());
         Add(new AutoEatModule());
         Add(new AutoDyeModule());
@@ -108,7 +110,7 @@ public class ModuleManager
         Add(new TotemPopNotifierModule());
         Add(new VisualRangeModule());
         Add(new XCarryModule());
-        
+
         /// Movement
         Add(new AntiLevitationModule());
         Add(new AutoWalkModule());
@@ -126,7 +128,7 @@ public class ModuleManager
         Add(new SprintModule());
         Add(new StepModule());
         Add(new YawModule());
-        
+
         /// Render
         Add(new AntiFog());
         Add(new BlockHighlightModule());
@@ -160,7 +162,7 @@ public class ModuleManager
         Add(new HudModule());
         Add(Keybinds = new KeybindsModule());
         Add(new ReliantChatModule());
-        
+
         /// World
         Add(new AutoBuilderModule());
         Add(new AutoNameTagModule());
@@ -179,22 +181,22 @@ public class ModuleManager
         Add(new StashLoggerModule());
         Add(new TimerModule());
         Add(new TorchAnnihilatorModule());
-        
+
         /// Schematica
         Add(new PrinterModule());
         Add(new PrinterBypassModule());
-        
+
         LoadExternalModules();
-        
+
         Mods.sort((p_Mod1, p_Mod2) -> p_Mod1.getDisplayName().compareTo(p_Mod2.getDisplayName()));
 
         final Preset preset = PresetsManager.Get().getActivePreset();
-        
+
         Mods.forEach(mod ->
         {
             preset.initValuesForMod(mod);
         });
-        
+
         Mods.forEach(mod ->
         {
             mod.init();
@@ -225,7 +227,7 @@ public class ModuleManager
             e.printStackTrace();
         }
     }
-    
+
     public final List<Module> GetModuleList(ModuleType p_Type)
     {
         List<Module> list = new ArrayList<>();
@@ -251,7 +253,7 @@ public class ModuleManager
     {
         if (string == null || string.isEmpty() || string.equalsIgnoreCase("NONE"))
             return;
-        
+
         Mods.forEach(p_Mod ->
         {
             if (p_Mod.IsKeyPressed(string))
@@ -268,13 +270,13 @@ public class ModuleManager
            if (p_Mod.getClass() == p_Class)
                return p_Mod;
         });*/
-        
+
         for (Module l_Mod : Mods)
         {
             if (l_Mod.getClass() == p_Class)
                 return l_Mod;
         }
-        
+
         SalHackMod.log.error("Could not find the class " + p_Class.getName() + " in Mods list");
         return null;
     }
@@ -286,10 +288,10 @@ public class ModuleManager
             if (l_Mod.GetArrayListDisplayName().toLowerCase().startsWith(p_String.toLowerCase()))
                 return l_Mod;
         }
-        
+
         return null;
     }
-    
+
     public void OnModEnable(Module p_Mod)
     {
         ArrayListAnimations.remove(p_Mod);
@@ -302,7 +304,7 @@ public class ModuleManager
             final float dif = RenderUtil.getStringWidth(secondName) - RenderUtil.getStringWidth(firstName);
             return dif != 0 ? (int) dif : secondName.compareTo(firstName);
         };
-        
+
         ArrayListAnimations = (ArrayList<Module>) ArrayListAnimations.stream()
         .sorted(comparator)
         .collect(Collectors.toList());
@@ -312,9 +314,9 @@ public class ModuleManager
     {
         if (ArrayListAnimations.isEmpty())
             return;
-        
+
         Module l_Mod = ArrayListAnimations.get(0);
-        
+
         if ((l_Mod.RemainingXAnimation -= (RenderUtil.getStringWidth(l_Mod.GetFullArrayListDisplayName()) / 10)) <= 0)
         {
             ArrayListAnimations.remove(l_Mod);
@@ -330,22 +332,22 @@ public class ModuleManager
             return true;
         if (GuiScreen.isShiftKeyDown() && !Keybinds.Shift.getValue())
             return true;
-        
+
         return false;
     }
-    
+
     public void LoadExternalModules()
     {
         // from seppuku
         try
         {
             final File dir = new File("SalHack/CustomMods");
-            
+
             for (Class newClass : ReflectionUtil.getClassesEx(dir.getPath()))
             {
                 if (newClass == null)
                     continue;
-                
+
                 // if we have found a class and the class inherits "Module"
                 if (Module.class.isAssignableFrom(newClass))
                 {
@@ -358,7 +360,7 @@ public class ModuleManager
                         Add(module);
                     }
                 }
-                
+
             }
         } catch (Exception e)
         {
