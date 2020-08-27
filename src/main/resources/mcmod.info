@@ -6,10 +6,12 @@
       "version": "${modVersion}",
       "mcversion": "${version_minecraft}",
       "authorList": ["ionar"],["ef1500"],
-      "credits": "ionar",
+      "credits": "ionar", "ef1500",
       "logoFile": "assets/salhack/imgs/YuriHackLogo.png",
       "screenshots": [],
       "dependencies": []
+      "updateUrl": "https://github.com/ef1500/yurihack",
+      "url": "https://github.com/ef1500/yurihack"
     },
     {
       "modid": "lunatriuscore",
